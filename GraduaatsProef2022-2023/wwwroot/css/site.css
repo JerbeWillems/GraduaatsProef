@@ -16,3 +16,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.typetest {
+    height: 430px;
+    border: 5px solid #F4C709;
+    width: 20rem;
+    border-radius: 30px;
+    padding: 2rem;
+    transition: transform .2s;
+    margin: 4rem;
+}
+
+    .typetest:hover {
+        transform: scale(1.25);
+    }
+
+.infotext {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
