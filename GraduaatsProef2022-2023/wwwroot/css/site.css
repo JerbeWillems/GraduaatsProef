@@ -37,3 +37,13 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.footer-text {
+    margin: 4rem;
+}
+.footer-infotext {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
