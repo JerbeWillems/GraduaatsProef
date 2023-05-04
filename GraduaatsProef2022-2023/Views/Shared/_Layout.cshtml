@@ -15,8 +15,7 @@
                     <img class="m-2" width="200" height="50" src="~/images/BrightestLogo.png" onclick="location.href='@Url.Action("Index", "Home")'" />
                 </span>
                 <span class="navbar-brand m-0">
-                    <a class="btn btn-block link-light border-warning m-3" asp-controller="Account" asp-action="Register">Registreer</a>
-                    <a class="btn btn-block link-light border-warning m-3" asp-controller="Account" asp-action="Login">Login</a>
+                @Html.Partial("_loginPartial")
                 </span>
             </div>
     </header>

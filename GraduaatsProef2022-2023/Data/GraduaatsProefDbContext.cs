@@ -12,5 +12,6 @@ namespace GraduaatsProef2022_2023.Data
         }
         public DbSet<Onderwerpen> Onderwerpen { get; set; }
         public DbSet<Reserveringen>? Reserveringen { get; set; }
+        public DbSet <Account> Account { get; set; }
     }
 }
