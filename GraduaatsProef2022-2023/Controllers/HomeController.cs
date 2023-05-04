@@ -1,4 +1,5 @@
-﻿using GraduaatsProef2022_2023.Models;
+﻿using GraduaatsProef2022_2023.Data;
+using GraduaatsProef2022_2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +7,15 @@ namespace GraduaatsProef2022_2023.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly GraduaatsProefDbContext _db;
+        public HomeController(GraduaatsProefDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_db.Onderwerpen.ToList());
         }
 
         public IActionResult Privacy()

@@ -85,6 +85,8 @@ namespace GraduaatsProef2022_2023.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hoelang = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GeheimeCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Prijs = table.Column<double>(type: "float", nullable: false),
                     Omschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false)

@@ -11,6 +11,10 @@ namespace GraduaatsProef2022_2023.Models
         public string Naam { get; set; }
         public string Foto { get; set; }
         [Required]
+        public DateTime Datum { get; set; }
+        [Required]
+        public string Hoelang { get; set; }
+        [Required]
         public string GeheimeCode { get; set; }
         [Required]
         public double Prijs { get; set; }

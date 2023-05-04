@@ -1,29 +1,66 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <img width="400" height="200" src="~/images/LogoBrightestLearn.png" alt="brightest Learn" />
+        </div>
+    </div>
+    <div class="infotext text-white">
+        <div class="typetest text-center">
+            <img src="~/images/WelkomIcon.JPG" width="80" height="95" alt="Picture" />
+            <h3 class="text-center text-decoration-underline">Welkom</h3>
+            <br />
+            <p class="text-center">Welkom op de Learn pagina, Als u dit ziet, heeft u een account aangemaakt en kan je nu hieronder voor onderwerpen kiezen</p>
+        </div>
+        <div class="typetest text-center">
+            <img src="~/images/AgendaIcon.JPG" width="80" height="85" alt="Picture" />
+            <h3 class="text-center text-decoration-underline">Reserveringen</h3>
+            <br />
+            <p class="text-center">Als u op een onderwerp hebt gedrukt, kan u extra info zien over het onderwerp en kan u op reserveren drukken om een les te volgen rond dit onderwerp.</p>
+        </div>
+        <div class="typetest text-center">
+            <img src="~/images/LogoutIcon.JPG" width="80" height="85" alt="Picture" />
+            <h3 class="text-decoration-underline">Logout</h3>
+            <br />
+            <p>Vanboven kan u zich uitloggen, na u de website verlaat.</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-content-center">
+        @Html.Partial("_onderwerpen")
+    </div>
 
-<div class="d-flex justify-content-center align-items-center ">
-    <div class="text-white">
-        <img width="400" height="200" src="~/images/LogoBrightestLearn.png" alt="brightest Learn"/>
+}
+else{
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <img width="400" height="200" src="~/images/LogoBrightestLearn.png" alt="brightest Learn" />
+        </div>
     </div>
-</div>
-<div class="infotext text-white">
-    <div class="typetest">
-        <img src="~/images/QuestionMark.png" alt="Picture" />
-        <h3 class="text-center text-decoration-underline">Wat is Brightest Learn?</h3>
-        <br />
-        <p class="text-center">Brihgtest Learn is een website, waar je over testonderwerpen kunt bijleren. Je kan lessen volgen en hiermee je kennis beter maken of iets nieuws leren rond Testing</p>
+    <div class="infotext text-white">
+        <div class="typetest text-center">
+            <img src="~/images/QuestionMark.png" width="80" height="95" alt="Picture" />
+            <h3 class="text-center text-decoration-underline">Wat is Brightest Learn?</h3>
+            <br />
+            <p class="text-center">Brightest Learn is een website, waar je over testonderwerpen kunt bijleren. Je kan lessen volgen en hiermee je kennis beter maken of iets nieuws leren rond Testing</p>
+        </div>
+        <div class="typetest text-center">
+            <img src="~/images/ArrowDown.JPG" width="80" height="95" alt="Picture" />
+            <h3 class="text-center text-decoration-underline">Wat kan je hier doen?</h3>
+            <br />
+            <p class="text-center">Je kan een account aanmaken, daarna kan je uit verschillende onderwerpen kiezen om over bij te leren en kan je een les kiezen, om te volgen. </p>
+        </div>
+        <div class="typetest text-center">
+            <img src="~/images/RegisterLoginPic.png" alt="Picture" />
+            <h3 class="text-decoration-underline">Login/registreer</h3>
+            <br />
+            <p>Vanboven kan u zich registreren of inloggen.</p>
+        </div>
     </div>
-    <div class="typetest">
-        <img src="~/images/QuestionMark.png" alt="Picture" />
-        <h3 class="text-center text-decoration-underline">Wat kan je hier doen?</h3>
-        <br />
-        <p class="text-center">Je kan een account aanmaken, daarna kan je uit verschillende onderwerpen kiezen om over bij te leren en daarna kan je een les kiezen voor die dag, om te volgen. </p>
-    </div>
-    <div class="typetest text-center">
-        <img src="~/images/RegisterLoginPic.png" alt="Picture" />
-        <h3 class="text-decoration-underline">Login/registreer</h3>
-        <br />
-        <p>Vanboven kan u zich registreren of inloggen.</p>
-    </div>
-</div>
+}
+

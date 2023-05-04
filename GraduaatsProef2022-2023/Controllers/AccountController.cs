@@ -82,7 +82,7 @@ namespace GraduaatsProef2022_2023.Controllers
                 return View(account);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Website");
         }
         public async Task<IActionResult> Logout()
         {
