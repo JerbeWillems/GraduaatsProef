@@ -70,7 +70,8 @@ namespace GraduaatsProef2022_2023.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Omschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Actie = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

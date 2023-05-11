@@ -6,7 +6,7 @@ namespace GraduaatsProef2022_2023.Data
 {
     public class GraduaatsProefDbContext : IdentityDbContext
     {
-        public GraduaatsProefDbContext(DbContextOptions<GraduaatsProefDbContext> options): base(options)
+        public GraduaatsProefDbContext(DbContextOptions<GraduaatsProefDbContext> options): base(options) 
         {
 
         }

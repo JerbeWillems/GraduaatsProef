@@ -5,9 +5,14 @@
 @{
 }
 @*Hier komen de onderwerpen als product kaarten*@
-@foreach (var item in Model)
-{
-    <div>
-
-    </div>
-}
+<div class="productCard">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img src="@item.Foto" alt="Test">
+            <h1 class="m-4">@item.Naam</h1>
+            <p class="m-4">@item.Omschrijving</p>
+            <p><button onclick="location.href='@Url.Action(item.Actie, "Reserveringens")'" >Extra over deze les</button></p>
+        </div>
+    }
+</div>

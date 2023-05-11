@@ -51,6 +51,10 @@ namespace GraduaatsProef2022_2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Actie")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Foto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
