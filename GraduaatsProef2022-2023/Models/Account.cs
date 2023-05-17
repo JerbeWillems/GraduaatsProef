@@ -10,7 +10,7 @@ namespace GraduaatsProef2022_2023.Models
     {
         [Required]
         [Key]
-        public int Id { get; set; }
+        public int AccountId { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -18,5 +18,10 @@ namespace GraduaatsProef2022_2023.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public int? ReserveringsId { get; set; }
+        [ForeignKey("ReserveringsId")]
+        [ValidateNever]
+        public Reserveringen? Reserveringen { get; set; }
     }
 }

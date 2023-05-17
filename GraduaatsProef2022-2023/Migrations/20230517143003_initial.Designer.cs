@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GraduaatsProef2022_2023.Migrations
 {
     [DbContext(typeof(GraduaatsProefDbContext))]
-    [Migration("20230517121153_initial")]
+    [Migration("20230517143003_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,11 @@ namespace GraduaatsProef2022_2023.Migrations
 
             modelBuilder.Entity("GraduaatsProef2022_2023.Models.Account", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -40,7 +40,12 @@ namespace GraduaatsProef2022_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("ReserveringsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AccountId");
+
+                    b.HasIndex("ReserveringsId");
 
                     b.ToTable("Account");
                 });
@@ -309,6 +314,15 @@ namespace GraduaatsProef2022_2023.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("GraduaatsProef2022_2023.Models.Account", b =>
+                {
+                    b.HasOne("GraduaatsProef2022_2023.Models.Reserveringen", "Reserveringen")
+                        .WithMany()
+                        .HasForeignKey("ReserveringsId");
+
+                    b.Navigation("Reserveringen");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
