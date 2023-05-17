@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GraduaatsProef2022_2023.Migrations
 {
     [DbContext(typeof(GraduaatsProefDbContext))]
-    [Migration("20230511133030_initial")]
+    [Migration("20230517121153_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,11 +47,11 @@ namespace GraduaatsProef2022_2023.Migrations
 
             modelBuilder.Entity("GraduaatsProef2022_2023.Models.Onderwerpen", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OnderwerpId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OnderwerpId"), 1L, 1);
 
                     b.Property<string>("Actie")
                         .IsRequired()
@@ -69,18 +69,18 @@ namespace GraduaatsProef2022_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("OnderwerpId");
 
                     b.ToTable("Onderwerpen");
                 });
 
             modelBuilder.Entity("GraduaatsProef2022_2023.Models.Reserveringen", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ReserveringsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReserveringsId"), 1L, 1);
 
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
@@ -108,7 +108,7 @@ namespace GraduaatsProef2022_2023.Migrations
                     b.Property<double>("Prijs")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("ReserveringsId");
 
                     b.ToTable("Reserveringen");
                 });

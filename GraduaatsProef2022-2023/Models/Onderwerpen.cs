@@ -6,7 +6,7 @@ namespace GraduaatsProef2022_2023.Models
     {
         [Required]
         [Key]
-        public int Id { get; set; }
+        public int OnderwerpId { get; set; }
         [Required]
         public string Naam { get; set; }
         [Required]

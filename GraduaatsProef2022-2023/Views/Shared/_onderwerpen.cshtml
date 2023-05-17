@@ -6,13 +6,26 @@
 }
 @*Hier komen de onderwerpen als product kaarten*@
 <div class="productCard">
-    @foreach (var item in Model)
-    {
-        <div class="card">
-            <img src="@item.Foto" alt="Test">
-            <h1 class="m-4">@item.Naam</h1>
-            <p class="m-4">@item.Omschrijving</p>
-            <p><button onclick="location.href='@Url.Action(item.Actie, "Reserveringens")'" >Extra over deze les</button></p>
-        </div>
-    }
+    <div class="card">
+        <img src="~/images/Testing.jpg" alt="Test">
+        <h1 class="m-4">Onderwerpen</h1>
+        <p class="m-4">Alle onderwerpen</p>
+        <p><button onclick="location.href='@Url.Action("Index", "Onderwerpens")'">Ga naar de lijst van onderwerpen om details te bekijken van de onderwerpen.</button></p>
+    </div>
+</div>
+<div class="productCard">
+    <div class="card">
+        <img src="~/images/Testing.jpg" alt="Test">
+        <h1 class="m-4">Reserveringen</h1>
+        <p class="m-4">Alle reserveringen</p>
+        <p><button onclick="location.href='@Url.Action("Index", "Reserveringens")'">Ga naar de lijst van, welke je reserveringen op kunt doen</button></p>
+    </div>
+</div>
+<div class="productCard">
+    <div class="card">
+        <img src="~/images/Testing.jpg" alt="Test">
+        <h1 class="m-4">Jouw Reservaties</h1>
+        <p class="m-4">Al jouw reservaties</p>
+        <p><button onclick="location.href='@Url.Action("UserIndex", "Reserveringens")'">Ga naar de lijst van jouw reserveringen</button></p>
+    </div>
 </div>

@@ -3,6 +3,7 @@ using GraduaatsProef2022_2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace GraduaatsProef2022_2023.Controllers
@@ -20,6 +21,13 @@ namespace GraduaatsProef2022_2023.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return _context.Account != null ?
+                        View(await _context.Account.ToListAsync()) :
+                        Problem("Entity set 'GraduaatsProefDbContext.Onderwerpen'  is null.");
         }
 
         [HttpGet]

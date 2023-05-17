@@ -58,6 +58,15 @@ namespace GraduaatsProef2022_2023.Data
                 }
                  _context.SaveChanges();
                 }
+
+                if (!_context.Reserveringen.Any())
+                {
+                    foreach (var topic in GetReserveringen())
+                    {
+                        _context.Reserveringen.Add(topic);
+                    }
+                    _context.SaveChanges();
+                }
             }
         }
         public static Onderwerpen[] GetOnderwerpen()
@@ -107,5 +116,21 @@ namespace GraduaatsProef2022_2023.Data
             };
             return result;
         }
+        public static Reserveringen[] GetReserveringen()
+        {
+            var result = new Reserveringen[1];
+            result[0] = new Reserveringen
+            {
+                Naam = "Testing",
+                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Foto = "../images/Testing.JPG",
+                Datum = DateTime.Parse("17/05/2023"),
+                Hoelang = "1 uur",
+                GeheimeCode = "458PGT",
+                Prijs = 10,              
+            };
+            return result;
+        }
+
     }
 }

@@ -66,7 +66,7 @@ namespace GraduaatsProef2022_2023.Migrations
                 name: "Onderwerpen",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    OnderwerpId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Omschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -75,14 +75,14 @@ namespace GraduaatsProef2022_2023.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Onderwerpen", x => x.Id);
+                    table.PrimaryKey("PK_Onderwerpen", x => x.OnderwerpId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Reserveringen",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ReserveringsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -94,7 +94,7 @@ namespace GraduaatsProef2022_2023.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reserveringen", x => x.Id);
+                    table.PrimaryKey("PK_Reserveringen", x => x.ReserveringsId);
                 });
 
             migrationBuilder.CreateTable(

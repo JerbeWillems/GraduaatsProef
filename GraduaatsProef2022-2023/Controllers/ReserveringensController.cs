@@ -20,30 +20,21 @@ namespace GraduaatsProef2022_2023.Views.Reservations
         }
 
         // GET: Reserveringens
+        public async Task<IActionResult> Index()
+        {
+            return _context.Reserveringen != null ?
+                        View(await _context.Reserveringen.ToListAsync()) :
+                        Problem("Entity set 'GraduaatsProefDbContext.Reserveringen'  is null.");
+        }
+        public async Task<IActionResult> UserIndex()
+        {
+            return View();
+        }
 
-        public async Task<IActionResult> Testing()
+        public async Task<IActionResult> Reservatie()
         {
             return View();
         }
-        public async Task<IActionResult> TestAuthomation()
-        {
-            return View();
-        }
-        public async Task<IActionResult> SecurityTesting()
-        {
-            return View();
-        }
-        public async Task<IActionResult> FlexTesting()
-        {
-            return View();
-        }
-        public async Task<IActionResult> PerformanceTesting()
-        {
-            return View();
-        }
-        public async Task<IActionResult> ScalabilityTesting()
-        {
-            return View();
-        }
+
     }
 }
