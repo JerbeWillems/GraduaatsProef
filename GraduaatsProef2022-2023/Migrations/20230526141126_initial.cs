@@ -71,7 +71,7 @@ namespace GraduaatsProef2022_2023.Migrations
                     ReserveringsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hoelang = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GeheimeCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -81,6 +81,25 @@ namespace GraduaatsProef2022_2023.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reserveringen", x => x.ReserveringsId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserIndex",
+                columns: table => new
+                {
+                    UserIndexId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Omschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hoelang = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GeheimeCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prijs = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserIndex", x => x.UserIndexId);
                 });
 
             migrationBuilder.CreateTable(
@@ -276,6 +295,9 @@ namespace GraduaatsProef2022_2023.Migrations
 
             migrationBuilder.DropTable(
                 name: "Onderwerpen");
+
+            migrationBuilder.DropTable(
+                name: "UserIndex");
 
             migrationBuilder.DropTable(
                 name: "Reserveringen");

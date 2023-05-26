@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GraduaatsProef2022_2023.Models.ViewModel.UserIndexViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Email</p>
+            </th>
+            <th>
+                <p>Naam</p>
+            </th>
+            <th>
+                <p>Omschrijving</p>
+            </th>
+            <th>
+                <p>Datum</p>
+            </th>
+            <th>
+                <p>Hoelang</p>
+            </th>
+            <th>
+                <p>GeheimeCode</p>
+            </th>
+            <th>
+                <p>Prijs</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                    @item.UserIndex.Email
+            </td>
+            <td>
+                    @item.UserIndex.Naam
+            </td>
+            <td>
+                    @item.UserIndex.Omschrijving
+            </td>
+            <td>
+                    @item.UserIndex.Datum
+            </td>
+            <td>
+                    @item.UserIndex.Hoelang
+            </td>
+            <td>
+                    @item.UserIndex.GeheimeCode
+            </td>
+            <td>
+                    @item.UserIndex.Prijs
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

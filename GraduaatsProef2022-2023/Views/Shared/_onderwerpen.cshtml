@@ -10,7 +10,7 @@
         <img src="~/images/Testing.jpg" alt="Test">
         <h1 class="m-4">Onderwerpen</h1>
         <p class="m-4">Alle onderwerpen</p>
-        <p><button onclick="location.href='@Url.Action("Index", "Onderwerpens")'">Ga naar de lijst van onderwerpen om details te bekijken van de onderwerpen.</button></p>
+        <a asp-action="Index" asp-controller="Onderwerpens">Ga naar de lijst van onderwerpen om details te bekijken van de onderwerpen.</a>
     </div>
 </div>
 <div class="productCard">
@@ -18,7 +18,7 @@
         <img src="~/images/Testing.jpg" alt="Test">
         <h1 class="m-4">Reserveringen</h1>
         <p class="m-4">Alle reserveringen</p>
-        <p><button onclick="location.href='@Url.Action("Index", "Reserveringens")'">Ga naar de lijst van, welke je reserveringen op kunt doen</button></p>
+        <a asp-action="Index" asp-controller="Reserveringens">Ga naar de lijst van, welke je reserveringen op kunt doen</a>
     </div>
 </div>
 <div class="productCard">
@@ -26,6 +26,6 @@
         <img src="~/images/Testing.jpg" alt="Test">
         <h1 class="m-4">Jouw Reservaties</h1>
         <p class="m-4">Al jouw reservaties</p>
-        <p><button onclick="location.href='@Url.Action("UserIndex", "Reserveringens")'">Ga naar de lijst van jouw reserveringen</button></p>
+        <a asp-action="ShowUserIndex" asp-controller="Reserveringens">Ga naar de lijst van jouw reserveringen</a>
     </div>
 </div>

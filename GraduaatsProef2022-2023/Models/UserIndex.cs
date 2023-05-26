@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GraduaatsProef2022_2023.Models
 {
-    public class Reserveringen
+    public class UserIndex
     {
         [Required]
         [Key]
-        public int ReserveringsId { get; set; }
+        public int UserIndexId { get; set; }
+        [Required]
+        public string? Email { get; set; }
         [Required]
         public string? Naam { get; set; }
-        public string? Foto { get; set; }
+        [Required]
+        public string? Omschrijving { get; set; }
         [Required]
         public DateTime? Datum { get; set; }
         [Required]
@@ -20,7 +21,8 @@ namespace GraduaatsProef2022_2023.Models
         public string? GeheimeCode { get; set; }
         [Required]
         public double? Prijs { get; set; }
-        [Required]
-        public string?  Omschrijving { get; set; }
+
+
+
     }
 }

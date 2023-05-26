@@ -30,9 +30,6 @@
                     @Html.DisplayNameFor(model => model.Hoelang)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.GeheimeCode)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Prijs)
                 </th>
                 <th>
@@ -59,9 +56,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.GeheimeCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Prijs)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Omschrijving)
@@ -96,9 +90,6 @@ else{
                 @Html.DisplayNameFor(model => model.Hoelang)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GeheimeCode)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Prijs)
             </th>
             <th>
@@ -123,16 +114,13 @@ else{
                 @Html.DisplayFor(modelItem => item.Hoelang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GeheimeCode)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Prijs)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Omschrijving)
             </td>
             <td>
-                        <a asp-action="Reservatie" asp-route-id="@item.ReserveringsId">Rerserveren</a>
+                <a asp-action="ShowUserIndex" asp-route-id="@item.ReserveringsId">Reserveren</a>
             </td>
         </tr>
 }

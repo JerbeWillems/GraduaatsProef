@@ -85,10 +85,51 @@ namespace GraduaatsProef2022_2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReserveringsId"), 1L, 1);
 
-                    b.Property<DateTime>("Datum")
+                    b.Property<DateTime?>("Datum")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GeheimeCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hoelang")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Naam")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Omschrijving")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Prijs")
+                        .IsRequired()
+                        .HasColumnType("float");
+
+                    b.HasKey("ReserveringsId");
+
+                    b.ToTable("Reserveringen");
+                });
+
+            modelBuilder.Entity("GraduaatsProef2022_2023.Models.UserIndex", b =>
+                {
+                    b.Property<int>("UserIndexId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserIndexId"), 1L, 1);
+
+                    b.Property<DateTime?>("Datum")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -108,12 +149,13 @@ namespace GraduaatsProef2022_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Prijs")
+                    b.Property<double?>("Prijs")
+                        .IsRequired()
                         .HasColumnType("float");
 
-                    b.HasKey("ReserveringsId");
+                    b.HasKey("UserIndexId");
 
-                    b.ToTable("Reserveringen");
+                    b.ToTable("UserIndex");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
