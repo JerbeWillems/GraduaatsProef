@@ -5,25 +5,25 @@
 }
 <div class="productCard">
     <div class="card">
-        <img src="~/images/Testing.jpg" alt="Test">
+        <img src="~/images/Users.JPG" alt="Test">
         <h1 class="m-4">Gebruikers</h1>
-        <p class="m-4">Alle gebruikers</p>
-        <p><button onclick="location.href='@Url.Action("Index", "Account")'">Ga naar de lijst van gebruikers</button></p>
+        <p class="m-4">Alle gebruikers die zich hebben geregistreerd op de pagina.</p>
+        <a asp-action="Index" asp-controller="Account">Ga naar de lijst van gebruikers</a>
     </div>
 </div>
 <div class="productCard">
     <div class="card">
-        <img src="~/images/Testing.jpg" alt="Test">
+        <img src="~/images/Onderwerpen.JPG" alt="Test">
         <h1 class="m-4">Onderwerpen</h1>
-        <p class="m-4">Alle onderwerpen</p>
-        <p><button onclick="location.href='@Url.Action("Index", "Onderwerpens")'">Ga naar de lijst van onderwerpen</button></p>
+        <p class="m-4">Alle onderwerpen waarvan er een reservering kan gemaakt van worden.</p>
+        <a asp-action="Index" asp-controller="Onderwerpens">Ga naar de lijst van onderwerpen</a>
     </div>
 </div>
 <div class="productCard">
     <div class="card">
-        <img src="~/images/Testing.jpg" alt="Test">
+        <img src="~/images/ReserveringenIcon.JPG" alt="Test">
         <h1 class="m-4">Reserveringen</h1>
-        <p class="m-4">Alle reserveringen</p>
-        <p><button onclick="location.href='@Url.Action("Index", "Reserveringens")'">Ga naar de lijst van reserveringen</button></p>
+        <p class="m-4">Alle reserveringen die kunnen gemaakt worden door de gebruikers.</p>
+        <a asp-action="Index" asp-controller="Reserveringens">Ga naar de lijst van reserveringen</a>
     </div>
 </div>

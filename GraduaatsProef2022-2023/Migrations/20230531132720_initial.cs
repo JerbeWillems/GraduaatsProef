@@ -56,7 +56,6 @@ namespace GraduaatsProef2022_2023.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Omschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Actie = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -71,7 +70,6 @@ namespace GraduaatsProef2022_2023.Migrations
                     ReserveringsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hoelang = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GeheimeCode = table.Column<string>(type: "nvarchar(max)", nullable: false),

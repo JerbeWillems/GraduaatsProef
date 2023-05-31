@@ -76,42 +76,36 @@ namespace GraduaatsProef2022_2023.Data
             {
                 Naam = "Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "Testing"
             };
             result[1] = new Onderwerpen
             {
                 Naam = "Test Authomation",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "TestAuthomation"
             };
             result[2] = new Onderwerpen
             {
                 Naam = "Security Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "SecurityTesting"
             };
             result[3] = new Onderwerpen
             {
                 Naam = "Flex Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "FlexTesting"
             };
             result[4] = new Onderwerpen
             {
                 Naam = "Performance Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "PerformanceTesting"
             };
             result[5] = new Onderwerpen
             {
                 Naam = "Scalability Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Actie = "ScalabilityTesting"
             };
             return result;
@@ -123,7 +117,6 @@ namespace GraduaatsProef2022_2023.Data
             {
                 Naam = "Testing",
                 Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
-                Foto = "../images/Testing.JPG",
                 Datum = DateTime.Parse("17/05/2023"),
                 Hoelang = "1 uur",
                 GeheimeCode = "458PGT",

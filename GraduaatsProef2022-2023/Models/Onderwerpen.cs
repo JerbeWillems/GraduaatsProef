@@ -12,8 +12,6 @@ namespace GraduaatsProef2022_2023.Models
         [Required]
         public string Omschrijving { get; set; }
         [Required]
-        public string Foto { get; set; }
-        [Required]
         public string Actie { get; set; }
 
     }

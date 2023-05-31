@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GraduaatsProef2022_2023.Migrations
 {
     [DbContext(typeof(GraduaatsProefDbContext))]
-    [Migration("20230526141126_initial")]
+    [Migration("20230531132720_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,10 +62,6 @@ namespace GraduaatsProef2022_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Foto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Naam")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -90,9 +86,6 @@ namespace GraduaatsProef2022_2023.Migrations
                     b.Property<DateTime?>("Datum")
                         .IsRequired()
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Foto")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GeheimeCode")
                         .IsRequired()

@@ -11,7 +11,6 @@ namespace GraduaatsProef2022_2023.Models
         public int ReserveringsId { get; set; }
         [Required]
         public string? Naam { get; set; }
-        public string? Foto { get; set; }
         [Required]
         public DateTime? Datum { get; set; }
         [Required]
