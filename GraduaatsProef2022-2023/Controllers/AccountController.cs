@@ -1,13 +1,16 @@
 ﻿using GraduaatsProef2022_2023.Data;
 using GraduaatsProef2022_2023.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
+
 namespace GraduaatsProef2022_2023.Controllers
 {
+    
     public class AccountController : Controller
     {
         private GraduaatsProefDbContext _context;
@@ -23,6 +26,7 @@ namespace GraduaatsProef2022_2023.Controllers
             _signInManager = signInManager;
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return _context.Account != null ?

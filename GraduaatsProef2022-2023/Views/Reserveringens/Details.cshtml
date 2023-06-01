@@ -1,0 +1,113 @@
+﻿@model GraduaatsProef2022_2023.Models.Reserveringen
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+@if (signInManager.IsSignedIn(User))
+{
+    @if (await userManager.IsInRoleAsync(await userManager.GetUserAsync(User), "Admin"))
+    {
+<h1>Details</h1>
+
+<div>
+    <h4>Reserveringen</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hoelang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hoelang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GeheimeCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeheimeCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ReserveringsId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+    }
+    else
+    {
+        <h1>Details</h1>
+
+        <div>
+            <h4>Reserveringen</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Naam)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Naam)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Datum)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Datum)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Hoelang)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Hoelang)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GeheimeCode)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GeheimeCode)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prijs)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prijs)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Omschrijving)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Omschrijving)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    }
+}

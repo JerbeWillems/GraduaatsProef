@@ -6,114 +6,118 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-@if (await userManager.IsInRoleAsync(await userManager.GetUserAsync(User), "Admin"))
+@if (signInManager.IsSignedIn(User))
 {
-    <h1>Index</h1>
+    @if (await userManager.IsInRoleAsync(await userManager.GetUserAsync(User), "Admin"))
+    {
+        <h1>Index</h1>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Naam)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Datum)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Hoelang)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Prijs)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Omschrijving)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Naam)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Datum)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Hoelang)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GeheimeCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Omschrijving)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ReserveringsId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ReserveringsId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ReserveringsId">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Naam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Datum)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hoelang)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prijs)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Omschrijving)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else{
-    <h1>Index</h1>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Naam)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Datum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hoelang)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GeheimeCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Omschrijving)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ReserveringsId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ReserveringsId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ReserveringsId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>Index</h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Datum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hoelang)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prijs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Omschrijving)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Datum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hoelang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prijs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Omschrijving)
-            </td>
-            <td>
-                <a asp-action="ShowUserIndex" asp-route-id="@item.ReserveringsId">Reserveren</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Naam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Datum)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hoelang)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prijs)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Omschrijving)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Naam)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Datum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hoelang)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prijs)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Omschrijving)
+                        </td>
+                        <td>
+                            <a asp-action="ShowUserIndex" asp-route-id="@item.ReserveringsId">Reserveren</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
 
 

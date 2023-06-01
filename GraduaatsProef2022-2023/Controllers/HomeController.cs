@@ -15,11 +15,6 @@ namespace GraduaatsProef2022_2023.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Onderwerpen.ToList());
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 

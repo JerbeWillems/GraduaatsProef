@@ -10,6 +10,8 @@ using GraduaatsProef2022_2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Query;
 using GraduaatsProef2022_2023.Models.ViewModel;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace GraduaatsProef2022_2023.Views.Reservations
 {
@@ -35,6 +37,10 @@ namespace GraduaatsProef2022_2023.Views.Reservations
         {
             
             IdentityUser user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Register", "Account");
+            }
             Account? account = await _context.Account.FirstOrDefaultAsync(x => x.Email == user.Email);
             if (account != null)
             {
@@ -77,8 +83,146 @@ namespace GraduaatsProef2022_2023.Views.Reservations
             {
                 return RedirectToAction("Index", "Reserveringens");
             }
-            
-            
+        }
+
+        // GET: Reserveringens/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Reserveringen == null)
+            {
+                return NotFound();
+            }
+
+            var reservering = await _context.Reserveringen
+                .FirstOrDefaultAsync(m => m.ReserveringsId == id);
+            if (reservering == null)
+            {
+                return NotFound();
+            }
+
+            return View(reservering);
+        }
+
+        // GET: Reserveringens/Create
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Reserverings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create([Bind("ReserveringsId,Naam,Datum,Hoelang,GeheimeCode,Prijs,Omschrijving")] Reserveringen reservering)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(reservering);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(reservering);
+        }
+
+        // GET: Reserveringens/Edit/5
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || _context.Reserveringen == null)
+            {
+                return NotFound();
+            }
+
+            var reservering = await _context.Reserveringen.FindAsync(id);
+            if (reservering == null)
+            {
+                return NotFound();
+            }
+            return View(reservering);
+        }
+
+        // POST: Reserveringens/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("ReserveringsId,Naam,Datum,Hoelang,GeheimeCode,Prijs,Omschrijving")] Reserveringen reservering)
+        {
+            if (id != reservering.ReserveringsId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(reservering);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ReserveringExist(reservering.ReserveringsId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction("Index", "Reserveringens");
+            }
+            return View(reservering);
+        }
+
+        // GET: Reserveringens/Delete/5
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.Reserveringen == null)
+            {
+                return NotFound();
+            }
+
+            var reservering = await _context.Reserveringen
+                .FirstOrDefaultAsync(m => m.ReserveringsId == id);
+            if (reservering == null)
+            {
+                return NotFound();
+            }
+
+            return View(reservering);
+        }
+
+        // POST: Onderwerpens/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.Reserveringen == null)
+            {
+                return Problem("Entity set 'GraduaatsProefDbContext.Reserveringen'  is null.");
+            }
+            var reservering = await _context.Reserveringen.FindAsync(id);
+            if (reservering != null)
+            {
+                _context.Reserveringen.Remove(reservering);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize(Roles = "Admin")]
+        private bool ReserveringExist(int id)
+        {
+            return (_context.Reserveringen?.Any(e => e.ReserveringsId == id)).GetValueOrDefault();
         }
     }
 }

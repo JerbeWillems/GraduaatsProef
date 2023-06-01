@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<GraduaatsProef2022_2023.Models.ViewModel.UserIndexViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-
+@if (signInManager.IsSignedIn(User))
+{
 <h1>Index</h1>
 
 <table class="table">
@@ -63,3 +67,4 @@
         }
     </tbody>
 </table>
+}

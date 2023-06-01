@@ -6,89 +6,92 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if (await userManager.IsInRoleAsync(await userManager.GetUserAsync(User), "Admin"))
+@if (signInManager.IsSignedIn(User))
 {
-    <h1>Index</h1>
+    @if (await userManager.IsInRoleAsync(await userManager.GetUserAsync(User), "Admin"))
+    {
+        <h1>Index</h1>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Naam)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Omschrijving)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Actie)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Naam)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Omschrijving)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Actie)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.OnderwerpId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.OnderwerpId">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Naam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Omschrijving)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Actie)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <h1>Index</h1>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Naam)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Omschrijving)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Actie)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.OnderwerpId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.OnderwerpId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>Index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Naam)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Omschrijving)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Actie)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Naam)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Omschrijving)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Actie)
-                    </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Naam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Omschrijving)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Actie)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Naam)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Omschrijving)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Actie)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
 

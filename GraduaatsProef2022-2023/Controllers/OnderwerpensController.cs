@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GraduaatsProef2022_2023.Data;
 using GraduaatsProef2022_2023.Models;
-
+using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GraduaatsProef2022_2023.Controllers
 {
+    
     public class OnderwerpensController : Controller
     {
         private readonly GraduaatsProefDbContext _context;
@@ -47,6 +49,7 @@ namespace GraduaatsProef2022_2023.Controllers
         }
 
         // GET: Onderwerpens/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +60,7 @@ namespace GraduaatsProef2022_2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("OnderwerpId,Naam,Omschrijving,Foto,Actie")] Onderwerpen onderwerpen)
         {
             if (ModelState.IsValid)
@@ -69,6 +73,7 @@ namespace GraduaatsProef2022_2023.Controllers
         }
 
         // GET: Onderwerpens/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Onderwerpen == null)
@@ -89,6 +94,7 @@ namespace GraduaatsProef2022_2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("OnderwerpId,Naam,Omschrijving,Foto,Actie")] Onderwerpen onderwerpen)
         {
             if (id != onderwerpen.OnderwerpId)
@@ -120,6 +126,7 @@ namespace GraduaatsProef2022_2023.Controllers
         }
 
         // GET: Onderwerpens/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Onderwerpen == null)
@@ -140,6 +147,7 @@ namespace GraduaatsProef2022_2023.Controllers
         // POST: Onderwerpens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Onderwerpen == null)
@@ -156,6 +164,7 @@ namespace GraduaatsProef2022_2023.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
         private bool OnderwerpenExists(int id)
         {
           return (_context.Onderwerpen?.Any(e => e.OnderwerpId == id)).GetValueOrDefault();
