@@ -75,37 +75,37 @@ namespace GraduaatsProef2022_2023.Data
             result[0] = new Onderwerpen
             {
                 Naam = "Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Omschrijving = "Deze les gaat over wat voor Testen er allemaal zijn en hoe u deze test kunt gebruiken.",
                 Actie = "Testing"
             };
             result[1] = new Onderwerpen
             {
                 Naam = "Test Authomation",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Omschrijving = "Deze les gaat over de test Test Authomation en hoe u deze test kunt gebruiken.",
                 Actie = "TestAuthomation"
             };
             result[2] = new Onderwerpen
             {
                 Naam = "Security Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Omschrijving = "Deze les gaat over de test Security Testing en hoe u deze test kunt gebruiken.",
                 Actie = "SecurityTesting"
             };
             result[3] = new Onderwerpen
             {
                 Naam = "Flex Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Omschrijving = "Deze les gaat over de test Flex Testing en hoe u deze test kunt gebruiken.",
                 Actie = "FlexTesting"
             };
             result[4] = new Onderwerpen
             {
-                Naam = "Performance Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Naam = "Unit Testing",
+                Omschrijving = "Deze les gaat over de test Unit Testing en hoe u deze test kunt gebruiken.",
                 Actie = "PerformanceTesting"
             };
             result[5] = new Onderwerpen
             {
-                Naam = "Scalability Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Naam = "PEN Testing",
+                Omschrijving = "Deze les gaat over PEN Testing, waarvoor PEN staat en hoe u deze test kunt gebruiken.",
                 Actie = "ScalabilityTesting"
             };
             return result;
@@ -116,7 +116,7 @@ namespace GraduaatsProef2022_2023.Data
             result[0] = new Reserveringen
             {
                 Naam = "Testing",
-                Omschrijving = "Deze les gaat over wat Testing is en hoe u deze kunt gebruiken. Voor extra info, klik op het onderwerp",
+                Omschrijving = "Deze les gaat over wat voor Testen er allemaal zijn en hoe u deze test kunt gebruiken.",
                 Datum = DateTime.Parse("17/05/2023"),
                 Hoelang = "1 uur",
                 GeheimeCode = "458PGT",

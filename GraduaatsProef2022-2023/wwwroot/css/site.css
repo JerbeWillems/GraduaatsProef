@@ -111,3 +111,30 @@ body {
         color: black
     }
 
+.border-onderwerpen {
+    border: 2px solid gold;
+    border-radius: 5%;
+    transition-duration: 1s;
+}
+    .border-onderwerpen:hover {
+        border: 2px solid gold;
+        border-radius: 5%;
+        color: black;
+        background-color: white;
+    }
+
+.border-reserveringen {
+    border: 2px solid gold;
+    border-radius: 5%;
+    width: 200px;
+    transition-duration: 1s;
+}
+    .border-reserveringen:hover {
+        border: 2px solid gold;
+        border-radius: 5%;
+        width: 200px;
+        color: black;
+        background-color: white;
+
+    }
+

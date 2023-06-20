@@ -70,55 +70,35 @@
     }
     else
     {
-        <div class="text-white">
-            <h1>Reserveringen</h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Naam)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Datum)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Hoelang)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Prijs)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Omschrijving)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Naam)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Datum)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Hoelang)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Prijs)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Omschrijving)
-                            </td>
-                            <td>
-                                <a asp-action="ShowUserIndex" asp-route-id="@item.ReserveringsId">Reserveren</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <div class="text-white m-5">
+            <h1 class="text-center m-4">Reserveringen</h1>
+            <div class="justify-content-center align-items-center d-flex m-1">
+                @foreach (var item in Model)
+                {
+                    <div class="border-reserveringen m-2">
+                        <div class="m-1 text-center">
+                            <h3>@Html.DisplayFor(modelitem => item.Naam)</h3>
+                        </div>
+                        <div class="m-0 top-0 bottom-0">
+                            <p>Data: @Html.DisplayFor(modelitem => item.Datum)</p>
+                        </div>
+                        <div class="m-0 top-0 bottom-0">
+                            <p>Duur: @Html.DisplayFor(modelitem => item.Hoelang)</p>
+                        </div>
+                        <div class="m-0 top-0 bottom-0">
+                            <p>Prijs: @Html.DisplayFor(modelitem => item.Prijs)€</p>
+                        </div>
+                        <div class="m-1">
+                            <p>@Html.DisplayFor(modelitem => item.Omschrijving)</p>
+                        </div>
+                        <div class="text-center">
+                            <a asp-action="ShowUserIndex" asp-route-id="@item.ReserveringsId">Reserveren</a>
+                        </div>
+                        
+                    </div>
+                }
+
+            </div>
         </div>
         
     }

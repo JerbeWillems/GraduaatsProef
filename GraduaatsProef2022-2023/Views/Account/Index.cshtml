@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="text-white">
-    <h1>Gebruikers</h1>
+    <h1 class="text-center">Gebruikers</h1>
 
 
     <table class="table text-white">
@@ -13,23 +13,20 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Email)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Password)
-                </th>
+                
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
+            <tr>
+                @foreach (var item in Model)
+                {
+
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Password)
-                    </td>
-                </tr>
-            }
+
+                }
+            </tr>
         </tbody>
     </table>
 

@@ -57,44 +57,23 @@
     }
     else
     {
-        <div class="text-white">
-            <h1>Onderwerpen</h1>
-
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Naam)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Omschrijving)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Actie)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Naam)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Omschrijving)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Actie)
-                            </td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <div class="text-white m-5">
+            <h1 class="text-center m-4">Onderwerpen</h1>
+            <div class="justify-content-center align-items-center d-flex m-1">
+                @foreach (var item in Model)
+                {
+                    <div class="border-onderwerpen m-2 text-center">
+                        <div class="m-1">
+                            <h5>@Html.DisplayFor(modelitem => item.Naam)</h5>
+                        </div>
+                        <div class="m-1">
+                            <p>@Html.DisplayFor(modelitem => item.Omschrijving)</p>
+                        </div>
+                        <a asp-action="Details" asp-route-id="@item.OnderwerpId">Details</a>
+                    </div>
+                }
+                
+            </div>
         </div>
     }
 }

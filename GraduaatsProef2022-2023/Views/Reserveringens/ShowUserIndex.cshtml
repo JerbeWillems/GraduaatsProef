@@ -9,65 +9,36 @@
 }
 @if (signInManager.IsSignedIn(User))
 {
-    <div class="text-white">
-        <h1>Jouw reserveringen</h1>
 
-        <table class="table text-white">
-            <thead>
-                <tr>
-                    <th>
-                        <p>Email</p>
-                    </th>
-                    <th>
-                        <p>Naam</p>
-                    </th>
-                    <th>
-                        <p>Omschrijving</p>
-                    </th>
-                    <th>
-                        <p>Datum</p>
-                    </th>
-                    <th>
-                        <p>Hoelang</p>
-                    </th>
-                    <th>
-                        <p>GeheimeCode</p>
-                    </th>
-                    <th>
-                        <p>Prijs</p>
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="text-white m-5">
+            <h1 class="text-center m-4">Jouw reserveringen</h1>
+            <div class="justify-content-center align-items-center d-flex m-1">
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @item.UserIndex.Email
-                        </td>
-                        <td>
-                            @item.UserIndex.Naam
-                        </td>
-                        <td>
-                            @item.UserIndex.Omschrijving
-                        </td>
-                        <td>
-                            @item.UserIndex.Datum
-                        </td>
-                        <td>
-                            @item.UserIndex.Hoelang
-                        </td>
-                        <td>
-                            @item.UserIndex.GeheimeCode
-                        </td>
-                        <td>
-                            @item.UserIndex.Prijs
-                        </td>
-                    </tr>
+                    <div class="border-reserveringen m-2">
+                        <div class="text-center">
+                            <h3>@Html.DisplayFor(modelitem => item.UserIndex.Naam)</h3>
+                        </div>
+                    <div class="m-0 top-0 bottom-0">
+                        <p>Data: @Html.DisplayFor(modelitem => item.UserIndex.Datum)</p>
+                    </div>
+                    <div class="m-0 top-0 bottom-0">
+                        <p>Duur: @Html.DisplayFor(modelitem => item.UserIndex.Hoelang)</p>
+                    </div>
+                    <div class="m-0 top-0 bottom-0">
+                        <p>Prijs: @Html.DisplayFor(modelitem => item.UserIndex.Prijs)€</p>
+                    </div>
+                        <div class="m-1">
+                            <p>@Html.DisplayFor(modelitem => item.UserIndex.Omschrijving)</p>
+                        </div>
+                        <div class="m-0 top-0 bottom-0">
+                            <p>Teams Code: @Html.DisplayFor(modelitem => item.UserIndex.GeheimeCode)</p>
+                        </div>
+                        
+                    </div>
                 }
-            </tbody>
-        </table>
-    </div>
+
+            </div>
+        </div>
 
 }
